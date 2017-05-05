@@ -50,6 +50,17 @@ module Noft
     r.model_element(:icon, :icon_set)
   end
 
+  class << self
+    def read_model(filename)
+      data = JSON.parse(IO.read(filename))
+      name = data['name']
+      Noft.error("Noft icon model configuration file '#{filename}' is missing a name") unless name
+      icon_set = Noft.icon_set(name.to_sym)
+      icon_set.read_from(data)
+      icon_set
+    end
+  end
+
   module Model #nodoc
     class IconSet
       # A human readable name for icon set
@@ -68,6 +79,19 @@ module Noft
 
       def write_to(filename)
         File.write(filename, JSON.pretty_generate(to_h) + "\n")
+      end
+
+      def read_from(data)
+        self.display_string = data['display_string'] if data['display_string']
+        self.description = data['description'] if data['description']
+        self.version = data['version'] if data['version']
+        self.url = data['url'] if data['url']
+        self.license = data['license'] if data['license']
+        self.license_url = data['license_url'] if data['license_url']
+
+        data['icons'].each_pair do |icon_name, icon_data|
+          self.icon(icon_name.to_sym).read_from(icon_data)
+        end if data['icons']
       end
 
       def to_h
@@ -105,6 +129,17 @@ module Noft
       # Alternative aliases under which this icon may be known.
       def aliases
         @aliases ||= []
+      end
+
+      def read_from(data)
+        self.display_string = data['display_string'] if data['display_string']
+        self.description = data['description'] if data['description']
+        data['aliases'].each do |a|
+          self.aliases << a
+        end if data['aliases']
+        data['categories'].each do |c|
+          self.categories << c
+        end if data['categories']
       end
 
       def to_h
