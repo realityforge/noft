@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.email              = %q{peter@realityforge.org}
 
   s.homepage           = %q{https://github.com/realityforge/noft}
-  s.summary            = %q{A library to convert fonts to SVGs and helpers to use fonts.}
-  s.description        = %q{A library to convert fonts to SVGs and helpers to use fonts.}
+  s.summary            = %q{A tool to extract svg icons from icon fonts and generate helpers to render the icons.}
+  s.description        = %q{A tool to extract svg icons from icon fonts and generate helpers to render the icons.}
 
   s.files              = `git ls-files`.split("\n")
   s.test_files         = `git ls-files -- {spec}/*`.split("\n")
