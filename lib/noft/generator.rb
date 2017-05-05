@@ -19,7 +19,7 @@ module Noft
     method :blast, 'function(fontFile, destinationFolder, userConfig) {fontBlast(fontFile, destinationFolder, userConfig);}'
   end
 
-  class Generator
+  module Generator
     class << self
       def generate_assets(icon_set, output_directory)
         FileUtils.rm_rf output_directory
