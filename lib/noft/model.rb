@@ -97,10 +97,6 @@ module Noft
       # The unicode that it was assigned inside the font.
       attr_accessor :unicode
 
-      def qualified_name
-        "#{self.icon_set.name}-#{self.name}"
-      end
-
       # Categories which this Icon exists. Useful when displaying an icon sheet.
       def categories
         @categories ||= []
