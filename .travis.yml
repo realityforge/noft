@@ -3,6 +3,8 @@ sudo: false
 rvm:
   - 2.3.1
   - jruby-19mode
+node_js:
+  - v6.10.3
 git:
   depth: 10
 before_install:
