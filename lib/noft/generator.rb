@@ -25,6 +25,12 @@ module Noft
         icon_set = Noft.icon_set_by_name(icon_set_name)
         FileUtils.rm_rf output_directory
 
+        metadata_file = "#{output_directory}/svg/fonts.json"
+
+        FileUtils.mkdir_p File.dirname(metadata_file)
+
+        icon_set.write_to(metadata_file)
+
         # Generate filename mapping
         filenames = {}
         icon_set.icons.each { |icon| filenames[icon.unicode] = icon.name }
