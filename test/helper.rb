@@ -46,7 +46,7 @@ class Noft::TestCase < Minitest::Test
   end
 
   def unlink_node_modules
-    FileUtils.rm("#{self.working_dir}/node_modules")
+    FileUtils.rm(self.local_node_modules_dir) if File.exist?(self.local_node_modules_dir)
   end
 
   def create_file(filename, content)
@@ -70,6 +70,10 @@ class Noft::TestCase < Minitest::Test
 
   def node_modules_dir
     @node_modules_dir ||= "#{workspace_dir}/node_modules"
+  end
+
+  def local_node_modules_dir
+    "#{self.working_dir}/node_modules"
   end
 
   # The base test directory
