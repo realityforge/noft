@@ -21,17 +21,32 @@ class Noft::TestCase < Minitest::Test
 
     FileUtils.mkdir_p self.working_dir
     Dir.chdir(self.working_dir)
+    File.write("#{self.working_dir}/package.json", package_json)
+
+    self.setup_node_modules
 
     Noft.reset
   end
 
   def teardown
+    self.unlink_node_modules
     Dir.chdir(@cwd)
     if passed?
       FileUtils.rm_rf self.working_dir if File.exist?(self.working_dir)
     else
       $stderr.puts "Test #{self.class.name}.#{name} Failed. Leaving working directory #{self.working_dir}"
     end
+  end
+
+  def setup_node_modules
+    node_modules_present = File.exist?(self.node_modules_dir)
+    FileUtils.mkdir_p self.node_modules_dir
+    FileUtils.link(self.node_modules_dir, "#{self.working_dir}/node_modules")
+    system('npm install') unless node_modules_present
+  end
+
+  def unlink_node_modules
+    FileUtils.rm("#{self.working_dir}/node_modules")
   end
 
   def create_file(filename, content)
@@ -82,5 +97,21 @@ class Noft::TestCase < Minitest::Test
     icon_set.icon_by_name('fire').unicode = 'f102'
 
     icon_set
+  end
+
+  def package_json
+    <<JSON
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "A project used to test",
+  "author": "",
+  "license": "Apache-2.0",
+  "repository": ".",
+  "devDependencies": {
+    "font-blast": "^0.6.1"
+  }
+}
+JSON
   end
 end
