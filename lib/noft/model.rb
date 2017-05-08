@@ -79,6 +79,10 @@ module Noft
       # The local filename of the font file
       attr_accessor :font_file
 
+      def font_file?
+        !@font_file.nil?
+      end
+
       def write_to(filename)
         File.write(filename, JSON.pretty_generate(to_h) + "\n")
       end
