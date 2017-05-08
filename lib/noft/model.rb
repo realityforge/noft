@@ -50,6 +50,8 @@ module Noft
     r.model_element(:icon, :icon_set)
   end
 
+  Reality::Facets.copy_targets_to_generator_target_manager(Noft::Generator, Noft::FacetManager)
+
   class << self
     def read_model(filename)
       data = JSON.parse(IO.read(filename))
