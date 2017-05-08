@@ -50,7 +50,7 @@ decipherable to outside parties.
 * Generate React helper for the same.
 
 * Add documentation describing full process
-* Link to font-awesome usage of this librar and possible demonstrate using other examples from other font libraries
+* Link to font-awesome usage of this library and possible demonstrate using other examples from other font libraries
   not unlike https://github.com/eugene1g/font-blast-examples
 
 * Figure out a mechanism for bringing in css classes not unlike in FontAwesome https://github.com/FortAwesome/Font-Awesome/tree/master/scss
