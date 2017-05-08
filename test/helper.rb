@@ -93,7 +93,7 @@ class Noft::TestCase < Minitest::Test
   def load_sample1_icon_set
     # Load data from fixture json and make sure we link up all the non persisted attributes
 
-    icon_set = Noft.read_model(fixture('sample1/fonts.json'))
+    icon_set = Noft.read_model(fixture('sample1/svg/fonts.json'))
     icon_set.font_file = fixture('sample1/webfont.svg')
 
     icon_set.icon_by_name('fire-extinguisher').unicode = 'f100'

@@ -7,10 +7,10 @@ class TestGenerator < Noft::TestCase
     output_directory = "#{working_dir}/assets"
     Noft::Generator.generate_assets(icon_set.name, output_directory)
 
-    assert_fixture_matches_output('sample1/fire.svg', "#{output_directory}/svg/fire.svg")
-    assert_fixture_matches_output('sample1/fire-extinguisher.svg', "#{output_directory}/svg/fire-extinguisher.svg")
-    assert_fixture_matches_output('sample1/fire-symbol.svg', "#{output_directory}/svg/fire-symbol.svg")
-    assert_fixture_matches_output('sample1/fonts.json', "#{output_directory}/svg/fonts.json")
+    assert_fixture_matches_output('sample1/svg/fire.svg', "#{output_directory}/svg/fire.svg")
+    assert_fixture_matches_output('sample1/svg/fire-extinguisher.svg', "#{output_directory}/svg/fire-extinguisher.svg")
+    assert_fixture_matches_output('sample1/svg/fire-symbol.svg', "#{output_directory}/svg/fire-symbol.svg")
+    assert_fixture_matches_output('sample1/svg/fonts.json', "#{output_directory}/svg/fonts.json")
 
     assert_true File.exist?("#{output_directory}/source-font.ttf")
     assert_true File.exist?("#{output_directory}/verify.html")
