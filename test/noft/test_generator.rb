@@ -38,7 +38,7 @@ class TestGenerator < Noft::TestCase
     end
 
     in_dir(git_dir) do
-      File.write('font.ttf','other content')
+      File.write('font.ttf', 'other content')
       assert_equal " M font.ttf\n", run_command('git status -s')
       Noft::Generator.send(:reset_state_if_unchanged, git_dir)
       assert_equal '', run_command('git status -s')
