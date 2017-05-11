@@ -55,3 +55,6 @@ decipherable to outside parties.
   not unlike https://github.com/eugene1g/font-blast-examples
 
 * Figure out a mechanism for bringing in css classes not unlike in FontAwesome https://github.com/FortAwesome/Font-Awesome/tree/master/scss
+
+* Add a watcher that waits for changes of either fonts or `noft.rb` and re-runs relevant tools.
+  https://github.com/guard/listen
