@@ -45,6 +45,8 @@ decipherable to outside parties.
 * Add generator that generates a html view page like Font-Awesomes.
 * Add simple way to generate a github site that publishes this index page as GitHub site.
 
+* Consider chaining https://github.com/ananthakumaran/webify for ttf fonts
+
 * Generate a GWT helper that generates methods that emit SafeHtml for each svg icon. The generated svg
   should probably be patched to allow setting width, height, aria-hidden=true, aria-role=img. See the
   GitHub implementaiton of similar concept https://github.com/blog/2112-delivering-octicons-with-svg
