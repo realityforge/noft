@@ -106,6 +106,7 @@ module Noft
       def read_from(data)
         self.display_string = data['displayString'] if data['displayString']
         self.description = data['description'] if data['description']
+        self.unicode = data['unicode'] if data['unicode']
         data['aliases'].each do |a|
           self.aliases << a
         end if data['aliases']
@@ -120,6 +121,7 @@ module Noft
         data[:description] = self.description if self.description
         data[:aliases] = self.aliases unless self.aliases.empty?
         data[:categories] = self.categories unless self.categories.empty?
+        data[:unicode] = self.unicode if self.unicode
 
         data
       end

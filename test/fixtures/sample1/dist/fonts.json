@@ -6,10 +6,13 @@
   "url": "http://www.flaticon.com/",
   "icons": {
     "fire-extinguisher": {
+      "unicode": "f100"
     },
     "fire-symbol": {
+      "unicode": "f101"
     },
     "fire": {
+      "unicode": "f102"
     }
   }
 }
