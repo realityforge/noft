@@ -36,17 +36,17 @@ class TestModel < Noft::TestCase
     expected =
       {
         :name => :fa,
-        :display_string => 'Font Awesome',
+        :displayString => 'Font Awesome',
         :description => 'The iconic font and CSS toolkit',
         :version => '4.3.2',
         :url => 'http://fontawesome.io',
         :license => 'SIL Open Font License (OFL)',
-        :license_url => 'http://scripts.sil.org/OFL',
+        :licenseUrl => 'http://scripts.sil.org/OFL',
         :icons =>
           {
             :'map-marker' =>
               {
-                :display_string => 'The nice map marker',
+                :displayString => 'The nice map marker',
                 :aliases => %w(map-point poi),
                 :categories => ['Map Icons', 'Web App Icons']
               },
