@@ -25,7 +25,7 @@ module Noft
         icon_set = Noft.icon_set_by_name(icon_set_name)
         FileUtils.rm_rf output_directory
 
-        metadata_file = "#{output_directory}/fonts.json"
+        metadata_file = "#{output_directory}/icon_set.json"
 
         FileUtils.mkdir_p File.dirname(metadata_file)
 
