@@ -19,12 +19,12 @@ module Noft
   end
 
   class << self
-    def read_model(filename)
+    def read_model(filename, filter = nil)
       data = JSON.parse(IO.read(filename))
       name = data['name']
       Noft.error("Noft icon model configuration file '#{filename}' is missing a name") unless name
       icon_set = Noft.icon_set(name.to_sym)
-      icon_set.read_from(data)
+      icon_set.read_from(data, filter)
       icon_set
     end
   end
@@ -53,7 +53,7 @@ module Noft
         File.write(filename, JSON.pretty_generate(to_h) + "\n")
       end
 
-      def read_from(data)
+      def read_from(data, filter = nil)
         self.display_string = data['displayString'] if data['displayString']
         self.description = data['description'] if data['description']
         self.version = data['version'] if data['version']
@@ -62,7 +62,9 @@ module Noft
         self.license_url = data['licenseUrl'] if data['licenseUrl']
 
         data['icons'].each_pair do |icon_name, icon_data|
-          self.icon(icon_name.to_sym).read_from(icon_data)
+          if filter.nil? || (filter.is_a?(Proc) && filter.call(icon_name)) || (filter.is_a?(Array) && filter.include?(icon_name))
+            self.icon(icon_name.to_sym).read_from(icon_data)
+          end
         end if data['icons']
       end
 
