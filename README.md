@@ -59,3 +59,7 @@ decipherable to outside parties.
 
 * Add a watcher that waits for changes of either fonts or `noft.rb` and re-runs relevant tools.
   https://github.com/guard/listen
+
+* Adapt hints from https://css-tricks.com/using-svg/
+
+* Optimize svg as part of process via https://github.com/svg/svgo
