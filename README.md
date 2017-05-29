@@ -48,7 +48,7 @@ decipherable to outside parties.
 
 * Generate a GWT helper that generates methods that emit SafeHtml for each svg icon. The generated svg
   should probably be patched to allow setting width, height, aria-hidden=true, aria-role=img. See the
-  GitHub implementaiton of similar concept https://github.com/blog/2112-delivering-octicons-with-svg
+  GitHub implementation of similar concept https://github.com/blog/2112-delivering-octicons-with-svg
 * Generate React helper for the same.
 
 * Add documentation describing full process
