@@ -45,11 +45,11 @@ module Noft
         wait_until { File.exist?("#{output_directory}/verify.html") }
 
         FileUtils.rm "#{output_directory}/verify.html"
-        FileUtils.mv "#{output_directory}/source-font.ttf", "#{output_directory}/font.ttf"
+        FileUtils.mv "#{output_directory}/source-font.ttf", "#{output_directory}/#{icon_set_name}.ttf"
         FileUtils.mv Dir["#{output_directory}/svg/*.svg"], output_directory
         FileUtils.rmdir "#{output_directory}/svg"
 
-        reset_state_if_unchanged(output_directory)
+        reset_state_if_unchanged(icon_set_name, output_directory)
 
         output_directory
       end
@@ -62,10 +62,10 @@ module Noft
       # scenario just reset the file.
       # Note: svg2ttf uses current date for some fields even if you pass in a date. Also font-blast
       # does not pass in a date.
-      def reset_state_if_unchanged(output_directory)
+      def reset_state_if_unchanged(icon_set_name, output_directory)
         output = `git status -s #{output_directory}`
-        if output.split("\n").size == 1 && !(output =~ /^ M (.*\/)?font.ttf$/).nil?
-          `git checkout #{output_directory}/font.ttf`
+        if output.split("\n").size == 1 && !(output =~ /^ M (.*\/)?#{icon_set_name}.ttf$/).nil?
+          `git checkout #{output_directory}/#{icon_set_name}.ttf`
         end
       end
 

@@ -18,7 +18,7 @@ class TestGenerator < Noft::TestCase
 
     create_git_repo(git_dir) do |dir|
       update_dir_from_fixture(output_directory, 'sample1/dist')
-      File.write("#{output_directory}/font.ttf", 'random_content')
+      File.write("#{output_directory}/#{icon_set.name}.ttf", 'random_content')
     end
 
     Noft::Generator.generate_assets(icon_set.name, output_directory)
@@ -34,13 +34,13 @@ class TestGenerator < Noft::TestCase
     git_dir = local_dir('myrepo')
     create_git_repo(git_dir) do |dir|
       update_dir_from_fixture(dir, 'sample1')
-      File.write('font.ttf', 'random_content')
+      File.write('sample1.ttf', 'random_content')
     end
 
     in_dir(git_dir) do
-      File.write('font.ttf', 'other content')
-      assert_equal " M font.ttf\n", run_command('git status -s')
-      Noft::Generator.send(:reset_state_if_unchanged, git_dir)
+      File.write('sample1.ttf', 'other content')
+      assert_equal " M sample1.ttf\n", run_command('git status -s')
+      Noft::Generator.send(:reset_state_if_unchanged, 'sample1', git_dir)
       assert_equal '', run_command('git status -s')
     end
   end

@@ -117,7 +117,7 @@ class Noft::TestCase < Minitest::Test
     assert_fixture_matches_output("#{fixture_name}/dist/fire-symbol.svg", "#{output_directory}/fire-symbol.svg")
     assert_fixture_matches_output("#{fixture_name}/dist/sample1.noft.json", "#{output_directory}/sample1.noft.json")
 
-    assert_true File.exist?("#{output_directory}/font.ttf")
+    assert_true File.exist?("#{output_directory}/sample1.ttf")
     assert_false File.exist?("#{output_directory}/verify.html")
     assert_false File.exist?("#{output_directory}/source-font.ttf")
     assert_false File.exist?("#{output_directory}/svg")
