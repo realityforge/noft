@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name               = %q{noft}
-  s.version            = '1.0.0'
+  s.version            = '1.0.1'
   s.platform           = Gem::Platform::RUBY
 
   s.authors            = ['Peter Donald']
