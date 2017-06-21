@@ -21,12 +21,12 @@ Gem::Specification.new do |s|
   s.has_rdoc           = false
   s.rdoc_options       = %w(--line-numbers --inline-source --title noft)
 
-  s.add_dependency 'reality-mda', '>= 1.7.0'
+  s.add_dependency 'reality-mda', '>= 1.8.0'
   s.add_dependency 'reality-core', '>= 1.8.0'
-  s.add_dependency 'reality-facets', '>= 1.8.0'
+  s.add_dependency 'reality-facets', '>= 1.9.0'
   s.add_dependency 'reality-generators', '>= 1.13.0'
   s.add_dependency 'reality-naming', '>= 1.9.0'
-  s.add_dependency 'reality-model', '>= 1.2.0'
+  s.add_dependency 'reality-model', '>= 1.3.0'
   s.add_dependency 'reality-orderedhash', '>= 1.0.0'
   s.add_dependency 'schmooze', '= 0.1.6'
 
