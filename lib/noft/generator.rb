@@ -20,12 +20,14 @@ module Noft
   end
 
   module Generator
+    EXTENSION = '.noft.json'
+
     class << self
       def generate_assets(icon_set_name, output_directory)
         icon_set = Noft.icon_set_by_name(icon_set_name)
         FileUtils.rm_rf output_directory
 
-        metadata_file = "#{output_directory}/icon_set.json"
+        metadata_file = "#{output_directory}/#{icon_set_name}#{EXTENSION}"
 
         FileUtils.mkdir_p File.dirname(metadata_file)
 

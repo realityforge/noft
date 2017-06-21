@@ -97,7 +97,7 @@ class Noft::TestCase < Minitest::Test
   def load_sample1_icon_set
     # Load data from fixture json and make sure we link up all the non persisted attributes
 
-    icon_set = Noft.read_model(fixture('sample1/dist/icon_set.json'))
+    icon_set = Noft.read_model(fixture('sample1/dist/sample1.noft.json'))
     icon_set.font_file = fixture('sample1/webfont.svg')
 
     icon_set.icon_by_name('fire-extinguisher').unicode = 'f100'
@@ -115,7 +115,7 @@ class Noft::TestCase < Minitest::Test
     assert_fixture_matches_output("#{fixture_name}/dist/fire.svg", "#{output_directory}/fire.svg")
     assert_fixture_matches_output("#{fixture_name}/dist/fire-extinguisher.svg", "#{output_directory}/fire-extinguisher.svg")
     assert_fixture_matches_output("#{fixture_name}/dist/fire-symbol.svg", "#{output_directory}/fire-symbol.svg")
-    assert_fixture_matches_output("#{fixture_name}/dist/icon_set.json", "#{output_directory}/icon_set.json")
+    assert_fixture_matches_output("#{fixture_name}/dist/sample1.noft.json", "#{output_directory}/sample1.noft.json")
 
     assert_true File.exist?("#{output_directory}/font.ttf")
     assert_false File.exist?("#{output_directory}/verify.html")
