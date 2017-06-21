@@ -31,7 +31,7 @@ module Noft
         Noft::Base::AssetsTemplate.new(template_set,
                                        facets,
                                        self.target_key,
-                                       'svg_assets',
+                                       'assets',
                                        'assets/#{icon_set.name}',
                                        helpers,
                                        template_options)
