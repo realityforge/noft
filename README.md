@@ -1,3 +1,9 @@
+# Archived
+
+<p align="center">Project has been archived as all the font icons we wanted to use now all ship optimized svg icons as well so noft is no longer necessary.</p>
+
+---
+
 # noft
 
 [![Build Status](https://secure.travis-ci.org/realityforge/noft.svg?branch=master)](http://travis-ci.org/realityforge/noft)
